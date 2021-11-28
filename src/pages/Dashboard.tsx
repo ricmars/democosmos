@@ -1,9 +1,9 @@
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { OneColumnPage, Button } from '@pega/cosmos-react-core';
 
 export default function Dashboard() {
-  const history = useHistory();
-  const handleClick = () => history.push('/about');
+  const history = useNavigate();
+  const handleClick = () => history('/about');
 
   return (
     <OneColumnPage

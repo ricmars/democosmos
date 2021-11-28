@@ -3,9 +3,25 @@ import { authenticate, fetchData, sendData } from '../services';
 import { setCookie } from '../utils/cookie';
 
 export default function Login() {
+  const { url, portalName, clientid, clientsecret, application, c11nurl } = JSON.parse(
+    window.localStorage.getItem('config') || ''
+  );
+
+  const [settingsURL, setsettingsURL] = useState(url);
+  const [settingsPortalName, setsettingsPortalName] = useState(portalName);
+  const [settingsClientid, setsettingsClientid] = useState(clientid);
+  const [settingsClientsecret, setsettingsClientsecret] = useState(clientsecret);
+  const [settingsApplication, setsettingsApplication] = useState(application);
+  const [settingsc11nURL, setsettingsc11nURL] = useState(c11nurl);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
+
+  const showHideSettings = () => {
+    setShowSettings(!showSettings);
+  };
 
   const sendCredentials = (e: React.FormEvent<HTMLFormElement>) => {
     setErrorMsg('');
@@ -34,6 +50,87 @@ export default function Login() {
     e.stopPropagation();
   };
 
+  const saveSettings = (e: React.FormEvent<HTMLFormElement>) => {
+    window.localStorage.setItem(
+      'config',
+      JSON.stringify({
+        url: settingsURL,
+        portalName: settingsPortalName,
+        clientid: settingsClientid,
+        clientsecret: settingsClientsecret,
+        application: settingsApplication,
+        c11nurl: settingsc11nURL
+      })
+    );
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  if (showSettings) {
+    return (
+      <main id='settingsCard'>
+        <h1>Settings</h1>
+        <form className='settings-field' onSubmit={saveSettings}>
+          <div>
+            <label htmlFor='url'>URL</label>
+            <input
+              type='url'
+              id='url'
+              value={settingsURL}
+              onChange={e => setsettingsURL(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='portalName'>portalName</label>
+            <input
+              id='portalName'
+              value={settingsPortalName}
+              onChange={e => setsettingsPortalName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='clientid'>clientid</label>
+            <input
+              id='clientid'
+              value={settingsClientid}
+              onChange={e => setsettingsClientid(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='clientsecret'>clientsecret</label>
+            <input
+              id='clientsecret'
+              value={settingsClientsecret}
+              onChange={e => setsettingsClientsecret(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='application'>Application name</label>
+            <input
+              id='application'
+              value={settingsApplication}
+              onChange={e => setsettingsApplication(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='c11nurl'>C11 server URL</label>
+            <input
+              type='url'
+              id='c11nurl'
+              value={settingsc11nURL}
+              onChange={e => setsettingsc11nURL(e.target.value)}
+            />
+          </div>
+          <button className='login-button' type='submit'>
+            Update
+          </button>
+        </form>
+        <button className='settings-button' onClick={showHideSettings}>
+          Hide settings
+        </button>
+      </main>
+    );
+  }
   return (
     <main>
       <h1 className='sr-only'>Login page</h1>
@@ -114,6 +211,9 @@ export default function Login() {
           </button>
         </div>
       </form>
+      <button className='settings-button' onClick={showHideSettings}>
+        Settings
+      </button>
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useState, useContext, FormEvent } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import {
   Icon,
   Modal,
@@ -24,7 +24,7 @@ const Search = lazy(() => import('./pages/Search'));
 const CaseView = lazy(() => import('./pages/CaseView'));
 
 function App() {
-  const history = useHistory();
+  const history = useNavigate();
 
   if (window.history.state && window.history.state.token) {
     (window as any).token = window.history.state.token;
@@ -96,7 +96,7 @@ function App() {
       return () => {
         isMounted = false;
       };
-    }, []);
+    }, [className]);
 
     return (
       <Modal
@@ -182,10 +182,12 @@ function App() {
         active: i === activeNavItem,
         onClick: () => {
           setactiveNavItem(i);
-          history.push(i === 0 ? '/' : '/' + item.path, {
-            token: (window as any).token,
-            portal: (window as any).portal,
-            config: (window as any).config
+          history(i === 0 ? '/' : '/' + item.path, {
+            state: {
+              token: (window as any).token,
+              portal: (window as any).portal,
+              config: (window as any).config
+            }
           });
         }
       };
@@ -212,32 +214,28 @@ function App() {
 
   const defaultMainContent = (
     <Suspense fallback={<Progress placement='global' />}>
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/dashboard'>
-          <Dashboard />
-        </Route>
-        <Route path='/search'>
-          <Search />
-        </Route>
-        <Route path='/case/:casetypeid/:caseid'>
-          <CaseView />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path='/' element={<Home />} />
+
+        <Route path='/about' element={<About />} />
+
+        <Route path='/dashboard' element={<Dashboard />} />
+
+        <Route path='/search' element={<Search />} />
+
+        <Route path='/case/:casetypeid/:caseid' element={<CaseView />} />
+      </Routes>
     </Suspense>
   );
 
   const showSearchResults = (searchString: string) => {
     (window as any).searchString = searchString;
-    history.push('/search', {
-      token: (window as any).token,
-      portal: (window as any).portal,
-      config: (window as any).config
+    history('/search', {
+      state: {
+        token: (window as any).token,
+        portal: (window as any).portal,
+        config: (window as any).config
+      }
     });
   };
 
@@ -251,7 +249,7 @@ function App() {
     };
   };
   if (!(window as any).token) {
-    history.replace('/login');
+    history('/login');
     return <Login />;
   }
   if (errorMsg !== '') {

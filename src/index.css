@@ -93,6 +93,7 @@ body {
   overflow:hidden;
 }
 
+#settingsCard,
 #credentialsCard {
   flex-wrap: nowrap;
   padding-top: 40px;
@@ -103,4 +104,31 @@ body {
   max-width: 480px;
   margin: 0 auto;
   text-align: center;
+}
+
+#settingsCard {
+  max-width: 90ch;
+}
+
+.settings-field > div {
+  display: flex;
+  flex-flow: column;
+  padding-top: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 30px;
+}
+
+.settings-field input {
+  width:100%;
+  padding: 2px 8px;
+}
+
+.settings-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #FFF;
 }

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { WideNarrowPage, Progress } from '@pega/cosmos-react-core';
 import { AppAnnouncement } from '@pega/cosmos-react-work';
 

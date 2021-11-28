@@ -1,15 +1,8 @@
 import { setCookie } from './utils/cookie';
 
-const url = 'https://lab0268.lab.pega.com/prweb';
-const portalName = 'WebPortal';
-const clientid = '16018468936785765833';
-const clientsecret = 'BE9EAE087DDD8061DA11471197E779AD';
-const application = 'enrollment';
-const c11nurl = 'https://staging.constellation.pega.io/c11n';
-/*
-const application = "enrollment";
-const c11nurl = "http://localhost:3000/prweb/constellation";
-*/
+const { url, portalName, clientid, clientsecret, application, c11nurl } = JSON.parse(
+  window.localStorage.getItem('config') || ''
+);
 
 export const getDataUrl = (type: string, content: string) => {
   if (!content || content === '') return '';

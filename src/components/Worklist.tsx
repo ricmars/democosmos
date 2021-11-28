@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Tasks } from '@pega/cosmos-react-work';
 import { Button, Avatar, EmptyState, Text, MetaList, Link } from '@pega/cosmos-react-core';
 import { getOperatorName, getOperatorUrl, getCaseTypeName } from '../utils/env';
@@ -7,7 +7,7 @@ import { getDataUrl } from '../services';
 import { genStatus } from '../utils/status';
 
 export default function Worklist() {
-  const history = useHistory();
+  const history = useNavigate();
   const [isLimited, setIsLimited] = useState(true);
 
   const page = (
@@ -22,10 +22,12 @@ export default function Worklist() {
   }
 
   const openCaseType = (path: string, e: React.FormEvent<HTMLFormElement>) => {
-    history.push(path, {
-      token: (window as any).token,
-      portal: (window as any).portal,
-      config: (window as any).config
+    history(path, {
+      state: {
+        token: (window as any).token,
+        portal: (window as any).portal,
+        config: (window as any).config
+      }
     });
     e.preventDefault();
     e.stopPropagation();
