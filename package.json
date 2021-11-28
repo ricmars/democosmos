@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
+    "deploy": "node scripts/gh-pages-deploy.js",
     "test": "react-scripts test",
     "prettier-format": "prettier --config .prettierrc './src/**/*.{ts,tsx}' --write"
   },
@@ -43,6 +43,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "gh-pages": "^3.2.3",
-    "prettier": "^2.5.0"
+    "prettier": "^2.5.0",
+    "execa": "latest"
   }
 }
