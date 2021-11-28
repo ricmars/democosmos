@@ -2,6 +2,7 @@
   "name": "demoapp2p",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/democosmos/",
   "dependencies": {
     "@pega/cosmos-react-core": "^2.0.0-dev.21.0",
     "@pega/cosmos-react-rte": "^2.0.0-dev.21.0",
