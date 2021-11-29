@@ -6,7 +6,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { Configuration, PopoverManager, ModalManager, Toaster } from '@pega/cosmos-react-core';
 
 ReactDOM.render(
-  <Router>
+  <Router basename={window.location.pathname || ''}>
     <Configuration>
       <PopoverManager>
         <Toaster dismissAfter={5000}>
