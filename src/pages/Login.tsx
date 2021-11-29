@@ -38,7 +38,7 @@ export default function Login() {
             window.history.replaceState(
               { token: (window as any).token, config: (window as any).config },
               '',
-              window.location.origin
+              window.location.pathname
             );
             window.location.reload();
           });

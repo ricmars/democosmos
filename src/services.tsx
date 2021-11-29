@@ -77,7 +77,7 @@ export const fetchData = (type: string, content?: any) => {
       (window as any).etag = res.headers.get('etag');
     }
     if (res.status === 401) {
-      window.history.replaceState({}, '', window.location.origin);
+      window.history.replaceState({}, '', window.location.pathname);
       setCookie('token', '', 3);
       sessionStorage.removeItem('config');
       delete (window as any).token;
@@ -170,7 +170,7 @@ export const sendData = (type: string, id: string, content: any, method?: string
   }
   return fetch(apiurl, reqHeaders).then(res => {
     if (res.status === 401) {
-      window.history.replaceState({}, '', window.location.origin);
+      window.history.replaceState({}, '', window.location.pathname);
       setCookie('token', '', 3);
       sessionStorage.removeItem('config');
       delete (window as any).token;

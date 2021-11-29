@@ -150,7 +150,7 @@ function App() {
   });
 
   const logOffAction = () => {
-    window.history.replaceState({}, '', window.location.origin);
+    window.history.replaceState({}, '', window.location.pathname);
     setCookie('token', '', 0);
     sessionStorage.removeItem('config');
     delete (window as any).token;
@@ -216,13 +216,9 @@ function App() {
     <Suspense fallback={<Progress placement='global' />}>
       <Routes>
         <Route path='/' element={<Home />} />
-
         <Route path='/about' element={<About />} />
-
         <Route path='/dashboard' element={<Dashboard />} />
-
         <Route path='/search' element={<Search />} />
-
         <Route path='/case/:casetypeid/:caseid' element={<CaseView />} />
       </Routes>
     </Suspense>
@@ -230,7 +226,7 @@ function App() {
 
   const showSearchResults = (searchString: string) => {
     (window as any).searchString = searchString;
-    history('/search', {
+    history('./search', {
       state: {
         token: (window as any).token,
         portal: (window as any).portal,
