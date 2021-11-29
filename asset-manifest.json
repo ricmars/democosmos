@@ -41,8 +41,8 @@
     "static/js/19.de179a48.chunk.js": "/democosmos/static/js/19.de179a48.chunk.js",
     "static/js/19.de179a48.chunk.js.map": "/democosmos/static/js/19.de179a48.chunk.js.map",
     "main.css": "/democosmos/static/css/main.29e1ffa0.chunk.css",
-    "main.js": "/democosmos/static/js/main.d4e49e20.chunk.js",
-    "main.js.map": "/democosmos/static/js/main.d4e49e20.chunk.js.map",
+    "main.js": "/democosmos/static/js/main.f41fc3da.chunk.js",
+    "main.js.map": "/democosmos/static/js/main.f41fc3da.chunk.js.map",
     "runtime-main.js": "/democosmos/static/js/runtime-main.539227e1.js",
     "runtime-main.js.map": "/democosmos/static/js/runtime-main.539227e1.js.map",
     "static/js/22.d2a1f0b3.chunk.js": "/democosmos/static/js/22.d2a1f0b3.chunk.js",
@@ -1601,6 +1601,6 @@
     "static/js/runtime-main.539227e1.js",
     "static/js/22.d2a1f0b3.chunk.js",
     "static/css/main.29e1ffa0.chunk.css",
-    "static/js/main.d4e49e20.chunk.js"
+    "static/js/main.f41fc3da.chunk.js"
   ]
 }
