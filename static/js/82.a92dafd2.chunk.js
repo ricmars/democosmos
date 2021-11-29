@@ -1,2 +1,0 @@
-(this.webpackJsonpdemoapp2p=this.webpackJsonpdemoapp2p||[]).push([[82],{315:function(n,t,o){"use strict";o.r(t),o.d(t,"name",(function(){return e})),o.d(t,"Component",(function(){return p})),o.d(t,"viewBox",(function(){return i}));var r=o(1),e="arrow-micro-right",p=function(){return Object(r.jsx)("path",{d:"M10,16.8125 C10,16.8125 10,8 10,8 C10,8 14.8851562,12.3101563 14.8851562,12.3101563 C14.8851562,12.3101563 10,16.8117188 10,16.8117188 L10,16.8125 Z"},void 0)},i="0 0 25 25"}}]);
-//# sourceMappingURL=82.a92dafd2.chunk.js.map
