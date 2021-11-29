@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "pre-deploy": "react-scripts build",
-    "deploy": "gh-pages -b main -d build",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "prettier-format": "prettier --config .prettierrc './src/**/*.{ts,tsx}' --write"
   },
