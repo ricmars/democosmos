@@ -73,54 +73,49 @@ export default function Pulse() {
         fullname: getOperatorName(),
         avatarSrc: getDataUrl('operatorimage', getOperatorUrl())
       }}
-    >
-      <FeedNewPost
-        id='newpost'
-        interactionInfo={{
-          textAreaPlaceholder: 'Start a conversation',
-          postLabel: 'Post'
-        }}
-        onFilesAdded={() => {}}
-        onPost={() => {}}
-      />
-      {!isLoaded ? (
-        <Card style={{ alignItems: 'center', padding: '2rem 0' }}>
-          <Progress placement='inline' aria-label='Loading feed' message='' />
-        </Card>
-      ) : (
-        posts.map((item: any) => (
-          <FeedPost
-            id={item.pzInsKey}
-            key={item.pzInsKey}
-            info={{
-              fullname: item.postedByUser.name,
-              username: item.postedByUser.ID,
-              avatarSrc: getDataUrl('operatorimage', item.postedByUser.userImage),
-              content: item.pyMessage,
-              postContext: renderContent(item),
-              timeElapsed: getRelativeTime(new Date(item.pyFeed.pyPostedOn))
-            }}
-            interactionInfo={{
-              likeLabel: 'Like',
-              likeCount: item.pyLikes.pxLikeCount,
-              commentLabel: 'Comment'
-            }}
-            replies={renderReplies(item)}
-            attachments={[]}
-            maxContentHeight={80}
-            onLikeClick={() => {}}
-            onUserClick={() => {}}
-            actions={[{ text: 'Bookmark', id: 'Bookmark', onClick: () => {} }]}
-            replyInput={{
-              commentLabel: 'Send Comment',
-              attachments: [],
-              onFilesAdded: () => {},
-              onSubmit: () => {},
-              placeholder: 'Add a comment'
-            }}
-          />
-        ))
-      )}
-    </Feed>
+      newPostRegion={
+        <FeedNewPost
+          id='newpost'
+          interactionInfo={{
+            textAreaPlaceholder: 'Start a conversation',
+            postLabel: 'Post'
+          }}
+          onFilesAdded={() => {}}
+          onPost={() => {}}
+        />
+      }
+      posts={posts.map((item: any) => (
+        <FeedPost
+          id={item.pzInsKey}
+          key={item.pzInsKey}
+          info={{
+            fullname: item.postedByUser.name,
+            username: item.postedByUser.ID,
+            avatarSrc: getDataUrl('operatorimage', item.postedByUser.userImage),
+            content: item.pyMessage,
+            postContext: renderContent(item),
+            timeElapsed: getRelativeTime(new Date(item.pyFeed.pyPostedOn))
+          }}
+          interactionInfo={{
+            likeLabel: 'Like',
+            likeCount: item.pyLikes.pxLikeCount,
+            commentLabel: 'Comment'
+          }}
+          replies={renderReplies(item)}
+          attachments={[]}
+          maxContentHeight={80}
+          onLikeClick={() => {}}
+          onUserClick={() => {}}
+          actions={[{ text: 'Bookmark', id: 'Bookmark', onClick: () => {} }]}
+          replyInput={{
+            commentLabel: 'Send Comment',
+            attachments: [],
+            onFilesAdded: () => {},
+            onSubmit: () => {},
+            placeholder: 'Add a comment'
+          }}
+        />
+      ))}
+    />
   );
 }
