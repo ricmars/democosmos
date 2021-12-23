@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdemoapp2p=self.webpackChunkdemoapp2p||[]).push([[30642],{30642:function(n,e,o){o.r(e),o.d(e,{name:function(){return p},Component:function(){return u},viewBox:function(){return r}});var t=o(80184),p="dataviz-spark",u=function(){return(0,t.jsx)("polygon",{points:"21.71 6 14.71 6 14.71 7 21.54 7 14.72 14.25 11.76 10.79 3 18.45 3.66 19.21 11.65 12.21 14.69 15.75 21.71 8.22 21.71 14 22.71 14 22.71 6"},void 0)},r="0 0 25 25"}}]);
+//# sourceMappingURL=30642.2deb075b.chunk.js.map

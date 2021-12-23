@@ -1,2 +1,0 @@
-(this.webpackJsonpdemoapp2p=this.webpackJsonpdemoapp2p||[]).push([[267],{494:function(n,t,o){"use strict";o.r(t),o.d(t,"name",(function(){return e})),o.d(t,"Component",(function(){return i})),o.d(t,"viewBox",(function(){return r}));var p=o(1),e="dataviz-spark",i=function(){return Object(p.jsx)("polygon",{points:"21.71 6 14.71 6 14.71 7 21.54 7 14.72 14.25 11.76 10.79 3 18.45 3.66 19.21 11.65 12.21 14.69 15.75 21.71 8.22 21.71 14 22.71 14 22.71 6"},void 0)},r="0 0 25 25"}}]);
-//# sourceMappingURL=267.f4a372b6.chunk.js.map
