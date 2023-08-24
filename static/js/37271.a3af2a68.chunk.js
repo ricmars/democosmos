@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdemoapp2p=self.webpackChunkdemoapp2p||[]).push([[37271],{37271:function(n,t,e){e.r(t),e.d(t,{default:function(){return r}});var a=e(16871),u=e(30544),i=e(37260),o=e(80184);function r(){var n=(0,a.s0)();return(0,o.jsx)(u.Gt,{a:(0,o.jsx)("div",{children:(0,o.jsx)(i.Z,{onClick:function(){return n("/about")},children:"Navigate to about"})}),title:"Dashboard",icon:"gauge-solid"})}}}]);
-//# sourceMappingURL=37271.a3af2a68.chunk.js.map

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdemoapp2p=self.webpackChunkdemoapp2p||[]).push([[2026],{2026:function(e,t,n){n.r(t),n.d(t,{default:function(){return o}});var u=n(30544),i=n(80184);function o(){return(0,i.jsx)(u.Gt,{a:(0,i.jsx)("div",{children:"About page"}),title:"About",icon:"social-solid"})}}}]);
-//# sourceMappingURL=2026.fa4714b0.chunk.js.map
