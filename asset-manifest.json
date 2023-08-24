@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/democosmos/static/css/main.f64efcbd.css",
-    "main.js": "/democosmos/static/js/main.64c7ebae.js",
+    "main.js": "/democosmos/static/js/main.4de00361.js",
     "static/js/28516.b060574a.chunk.js": "/democosmos/static/js/28516.b060574a.chunk.js",
     "static/js/2026.6a54a8da.chunk.js": "/democosmos/static/js/2026.6a54a8da.chunk.js",
     "static/js/37271.a9da837f.chunk.js": "/democosmos/static/js/37271.a9da837f.chunk.js",
@@ -783,14 +783,14 @@
     "static/js/36427.82e0d7e0.chunk.js": "/democosmos/static/js/36427.82e0d7e0.chunk.js",
     "static/js/6319.f2b99dd4.chunk.js": "/democosmos/static/js/6319.f2b99dd4.chunk.js",
     "static/js/92896.cfee75b6.chunk.js": "/democosmos/static/js/92896.cfee75b6.chunk.js",
-    "static/js/41903.343c8460.chunk.js": "/democosmos/static/js/41903.343c8460.chunk.js",
+    "static/js/41903.7bb9eb2a.chunk.js": "/democosmos/static/js/41903.7bb9eb2a.chunk.js",
     "static/js/39872.ffc0626d.chunk.js": "/democosmos/static/js/39872.ffc0626d.chunk.js",
     "static/js/68497.39412887.chunk.js": "/democosmos/static/js/68497.39412887.chunk.js",
     "static/js/89156.af90652c.chunk.js": "/democosmos/static/js/89156.af90652c.chunk.js",
     "static/js/71029.f1b11204.chunk.js": "/democosmos/static/js/71029.f1b11204.chunk.js",
     "static/js/95751.c4cfb5d2.chunk.js": "/democosmos/static/js/95751.c4cfb5d2.chunk.js",
     "static/js/94634.9f0e28df.chunk.js": "/democosmos/static/js/94634.9f0e28df.chunk.js",
-    "static/js/55278.9e79f249.chunk.js": "/democosmos/static/js/55278.9e79f249.chunk.js",
+    "static/js/55278.fcdcef0e.chunk.js": "/democosmos/static/js/55278.fcdcef0e.chunk.js",
     "static/js/61800.4f770f70.chunk.js": "/democosmos/static/js/61800.4f770f70.chunk.js",
     "static/js/35302.c99b0e60.chunk.js": "/democosmos/static/js/35302.c99b0e60.chunk.js",
     "static/js/16205.22fd1ee1.chunk.js": "/democosmos/static/js/16205.22fd1ee1.chunk.js",
@@ -799,7 +799,7 @@
     "service-worker.js": "/democosmos/service-worker.js",
     "index.html": "/democosmos/index.html",
     "main.f64efcbd.css.map": "/democosmos/static/css/main.f64efcbd.css.map",
-    "main.64c7ebae.js.map": "/democosmos/static/js/main.64c7ebae.js.map",
+    "main.4de00361.js.map": "/democosmos/static/js/main.4de00361.js.map",
     "28516.b060574a.chunk.js.map": "/democosmos/static/js/28516.b060574a.chunk.js.map",
     "2026.6a54a8da.chunk.js.map": "/democosmos/static/js/2026.6a54a8da.chunk.js.map",
     "37271.a9da837f.chunk.js.map": "/democosmos/static/js/37271.a9da837f.chunk.js.map",
@@ -1581,14 +1581,14 @@
     "36427.82e0d7e0.chunk.js.map": "/democosmos/static/js/36427.82e0d7e0.chunk.js.map",
     "6319.f2b99dd4.chunk.js.map": "/democosmos/static/js/6319.f2b99dd4.chunk.js.map",
     "92896.cfee75b6.chunk.js.map": "/democosmos/static/js/92896.cfee75b6.chunk.js.map",
-    "41903.343c8460.chunk.js.map": "/democosmos/static/js/41903.343c8460.chunk.js.map",
+    "41903.7bb9eb2a.chunk.js.map": "/democosmos/static/js/41903.7bb9eb2a.chunk.js.map",
     "39872.ffc0626d.chunk.js.map": "/democosmos/static/js/39872.ffc0626d.chunk.js.map",
     "68497.39412887.chunk.js.map": "/democosmos/static/js/68497.39412887.chunk.js.map",
     "89156.af90652c.chunk.js.map": "/democosmos/static/js/89156.af90652c.chunk.js.map",
     "71029.f1b11204.chunk.js.map": "/democosmos/static/js/71029.f1b11204.chunk.js.map",
     "95751.c4cfb5d2.chunk.js.map": "/democosmos/static/js/95751.c4cfb5d2.chunk.js.map",
     "94634.9f0e28df.chunk.js.map": "/democosmos/static/js/94634.9f0e28df.chunk.js.map",
-    "55278.9e79f249.chunk.js.map": "/democosmos/static/js/55278.9e79f249.chunk.js.map",
+    "55278.fcdcef0e.chunk.js.map": "/democosmos/static/js/55278.fcdcef0e.chunk.js.map",
     "61800.4f770f70.chunk.js.map": "/democosmos/static/js/61800.4f770f70.chunk.js.map",
     "35302.c99b0e60.chunk.js.map": "/democosmos/static/js/35302.c99b0e60.chunk.js.map",
     "16205.22fd1ee1.chunk.js.map": "/democosmos/static/js/16205.22fd1ee1.chunk.js.map",
@@ -1597,6 +1597,6 @@
   },
   "entrypoints": [
     "static/css/main.f64efcbd.css",
-    "static/js/main.64c7ebae.js"
+    "static/js/main.4de00361.js"
   ]
 }
