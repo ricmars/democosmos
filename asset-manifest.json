@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/democosmos/static/css/main.f64efcbd.css",
-    "main.js": "/democosmos/static/js/main.d5ba1f75.js",
+    "main.js": "/democosmos/static/js/main.d10a00d7.js",
     "static/js/28516.b060574a.chunk.js": "/democosmos/static/js/28516.b060574a.chunk.js",
     "static/js/2026.6a54a8da.chunk.js": "/democosmos/static/js/2026.6a54a8da.chunk.js",
     "static/js/37271.a9da837f.chunk.js": "/democosmos/static/js/37271.a9da837f.chunk.js",
@@ -799,7 +799,7 @@
     "service-worker.js": "/democosmos/service-worker.js",
     "index.html": "/democosmos/index.html",
     "main.f64efcbd.css.map": "/democosmos/static/css/main.f64efcbd.css.map",
-    "main.d5ba1f75.js.map": "/democosmos/static/js/main.d5ba1f75.js.map",
+    "main.d10a00d7.js.map": "/democosmos/static/js/main.d10a00d7.js.map",
     "28516.b060574a.chunk.js.map": "/democosmos/static/js/28516.b060574a.chunk.js.map",
     "2026.6a54a8da.chunk.js.map": "/democosmos/static/js/2026.6a54a8da.chunk.js.map",
     "37271.a9da837f.chunk.js.map": "/democosmos/static/js/37271.a9da837f.chunk.js.map",
@@ -1597,6 +1597,6 @@
   },
   "entrypoints": [
     "static/css/main.f64efcbd.css",
-    "static/js/main.d5ba1f75.js"
+    "static/js/main.d10a00d7.js"
   ]
 }
