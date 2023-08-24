@@ -219,7 +219,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/search' element={<Search />} />
-        <Route path='/case/:casetypeid/:caseid' element={<CaseView />} />
+        <Route path='/case/:caseid' element={<CaseView />} />
       </Routes>
     </Suspense>
   );
@@ -259,7 +259,7 @@ function App() {
     <AppShell
       appInfo={{
         href: 'https://www.pega.com/',
-        imageSrc: 'https://pbs.twimg.com/profile_images/1410341211978752004/pLYjGIa8_bigger.jpg',
+        imageSrc: 'https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg',
         appName: 'Cosmos AppShell',
         portalName: 'Demo'
       }}

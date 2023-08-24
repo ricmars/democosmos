@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchData } from '../services';
-import { Card, Link, Progress } from '@pega/cosmos-react-core';
+import { Link } from '@pega/cosmos-react-core';
 import { Feed, FeedNewPost, FeedPost, FeedReply } from '@pega/cosmos-react-social';
 import { getRelativeTime } from '../utils/datetime';
 import { getOperatorName, getOperatorUrl } from '../utils/env';
@@ -8,7 +8,7 @@ import { getDataUrl } from '../services';
 
 export default function Pulse() {
   const [posts, setpost] = useState([]);
-  const [isLoaded, setPulseIsLoaded] = useState(false);
+  const [, setPulseIsLoaded] = useState(false);
 
   useEffect(() => {
     fetchData(

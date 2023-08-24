@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { SummaryList } from '@pega/cosmos-react-core';
 
 export default function Atttachments() {
-  const [loading, setLoading] = useState(false);
-  const [attachments, setAttachments] = useState([]);
+  const [loading] = useState(false);
+  const [attachments] = useState([]);
 
   return (
     <>

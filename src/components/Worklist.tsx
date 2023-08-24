@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tasks } from '@pega/cosmos-react-work';
 import { Button, Avatar, EmptyState, Text, MetaList, Link } from '@pega/cosmos-react-core';
-import { getOperatorName, getOperatorUrl, getCaseTypeName } from '../utils/env';
+import { getOperatorName, getOperatorUrl } from '../utils/env';
 import { getDataUrl } from '../services';
 import { genStatus } from '../utils/status';
 
@@ -41,8 +41,9 @@ export default function Worklist() {
         return !isLimited || i < 3;
       })
       .map((item, i) => {
-        const pyID = item.pxRefObjectKey.split(' ')[1];
-        const path = `/case/${getCaseTypeName(item.pxRefObjectClass)}/${pyID}`;
+        const keys = item.pxRefObjectKey.split(' ');
+        const pyID = keys[2];
+        const path = encodeURI(`/case/${keys[1]} ${keys[2]}`);
         return {
           name: item.pxTaskLabel,
           meta: (
@@ -56,7 +57,7 @@ export default function Worklist() {
                       openCaseType(path, e);
                     }}
                   >
-                    {item.pyLabel} {pyID}
+                    {pyID}
                   </Link>
                 </Text>,
                 genStatus(item.pyAssignmentStatus),

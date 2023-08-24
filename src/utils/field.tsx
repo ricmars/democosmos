@@ -2,6 +2,7 @@ import { genStatus } from './status';
 import { DateTimeDisplay, CurrencyDisplay, Progress } from '@pega/cosmos-react-core';
 import { RichTextViewer } from '@pega/cosmos-react-rte';
 import { Suspense, lazy } from 'react';
+import { renderView } from './renderer';
 
 /**
  * escape and unescape the HTML entities
@@ -197,8 +198,8 @@ export const getField = (context: any, data: any, pageContext?: any) => {
       const ref = data.config.datasource.source
         .replace('@DATASOURCE ', '')
         .replace('.pxResults', '');
-      if (context.data.data[ref] && context.data.data[ref].pxResults) {
-        data.config.options = context.data.data[ref].pxResults;
+      if (context.data[ref] && context.data[ref].pxResults) {
+        data.config.options = context.data[ref].pxResults;
       } else if (
         context.uiResources.context_data &&
         context.uiResources.context_data.caseInfo &&
@@ -328,6 +329,9 @@ export const renderDisplayFieldLabel = (data: any) => {
 
 export const renderField = (data: any, isReadOnly: boolean, context: any, casedata: any) => {
   getField(casedata, data);
+  if (data.type === 'View') {
+    return renderView(data, isReadOnly, context, casedata);
+  }
   const Utility = lazy(() =>
     import(`../fields/${data.type}`).catch((err: string) => {
       console.error(err);

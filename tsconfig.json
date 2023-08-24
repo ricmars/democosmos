@@ -7,7 +7,6 @@
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,
-    "importsNotUsedAsValues": "error",
     "newLine": "lf",
     "sourceMap": true,
     "allowJs": false,
@@ -15,12 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": [
-      "ES2021",
-      "DOM",
-      "DOM.Iterable",
-      "ESNext.Intl"
-    ],
+    "lib": ["ES2021", "DOM", "DOM.Iterable", "ESNext.Intl"],
     "target": "ES2021",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
@@ -28,7 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noEmit": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

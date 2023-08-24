@@ -17,7 +17,6 @@ import {
   Stages
 } from '@pega/cosmos-react-work';
 import { fetchData, sendData } from '../services';
-import { getCaseTypeClass } from '../utils/env';
 import { getField, renderDisplayFieldLabel, renderDisplayFieldValue } from '../utils/field';
 import { getDataUrl } from '../services';
 import { renderView } from '../utils/renderer';
@@ -25,7 +24,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { getFormData } from '../utils/form';
 
 export default function CaseViewPage() {
-  const { casetypeid, caseid } = useParams() as any;
+  const { caseid } = useParams() as any;
   const [isLoaded, setCaseIsLoaded] = useState(false);
   const [caseObj, setCaseObj] = useState<any>();
   const [isLimited, setIsLimited] = useState(true);
@@ -85,7 +84,7 @@ export default function CaseViewPage() {
   const getCaseViewRegion = useCallback(
     (name: string) => {
       if (!caseObj || !caseObj.uiResources.resources.views.pyDetails) return [];
-      for (const item of caseObj.uiResources.resources.views.pyDetails.children) {
+      for (const item of caseObj.uiResources.resources.views.pyDetails[0].children) {
         if (item.name === name) return item;
       }
       return [];
@@ -106,11 +105,7 @@ export default function CaseViewPage() {
           );
           return (
             <Suspense key={`utility-${i}`} fallback={<Progress placement='local' />}>
-              <Utility
-                caseid={caseid}
-                casetypeid={casetypeid}
-                utilityCtx={setUtilitySummaryDetails}
-              />
+              <Utility caseid={caseid} utilityCtx={setUtilitySummaryDetails} />
             </Suspense>
           );
         } catch (e) {
@@ -118,16 +113,14 @@ export default function CaseViewPage() {
         }
       })
     );
-  }, [caseObj, caseid, casetypeid, getCaseViewRegion]);
+  }, [caseObj, caseid, getCaseViewRegion]);
 
   useEffect(() => {
-    let caseKey = `${getCaseTypeClass(casetypeid).toUpperCase()}%20${caseid.toUpperCase()}`;
-    caseKey = caseKey.replace(`-${casetypeid.toUpperCase()}%20`, '%20');
-    fetchData('caseview', caseKey).then(response => {
+    fetchData('caseview', caseid).then(response => {
       setCaseObj(response);
       setCaseIsLoaded(true);
     });
-  }, [caseid, casetypeid]);
+  }, [caseid]);
 
   const setUtilitySummaryDetails = (widget: any, value: any) => {
     setUtilitySummaryCtx((prevState: any) => {
@@ -301,7 +294,7 @@ export default function CaseViewPage() {
   };
 
   const getSummaryFields = (index: number) => {
-    return caseObj.uiResources.resources.views.pyCaseSummary.children[index].children.map(
+    return caseObj.uiResources.resources.views.pyCaseSummary[0].children[index].children.map(
       (item: any, i: number) => {
         getField(caseObj, item);
         return {

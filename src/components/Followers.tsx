@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { SummaryList } from '@pega/cosmos-react-core';
 
 export default function Followers() {
-  const [loading, setLoading] = useState(false);
-  const [followers, setFollowers] = useState([]);
+  const [loading] = useState(false);
+  const [followers] = useState([]);
   return (
     <>
       {' '}
