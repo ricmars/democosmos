@@ -30,7 +30,6 @@ export default function Login() {
       .then(response => {
         if (response.access_token) {
           (window as any).token = response.access_token;
-          sendData('setc11ncookie', '', `token=${(window as any).token}`);
           fetchData('dataviews', 'D_pxBootstrapConfig').then(response => {
             (window as any).config = JSON.parse(response.pyConfigJSON);
             setCookie('token', (window as any).token, 3);

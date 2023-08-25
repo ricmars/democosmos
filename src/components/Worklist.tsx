@@ -42,8 +42,8 @@ export default function Worklist() {
       })
       .map((item, i) => {
         const keys = item.pxRefObjectKey.split(' ');
-        const pyID = keys[2];
-        const path = encodeURI(`/case/${keys[1]} ${keys[2]}`);
+        const pyID = keys[keys.length - 1];
+        const path = encodeURI(`/case/${keys[keys.length - 2]} ${keys[keys.length - 1]}`);
         return {
           name: item.pxTaskLabel,
           meta: (

@@ -7,12 +7,17 @@ const { url, portalName, clientid, clientsecret, application, c11nurl } = JSON.p
 
 export const getDataUrl = (type: string, content: string) => {
   if (!content || content === '') return '';
+
   switch (type) {
     case 'operatorimage':
-      return `${c11nurl}/v860/app/${application}/image/${content}`;
+      fetchData('operatorimage', content).then(response => {
+        return response;
+      });
+      break;
     default:
       break;
   }
+
   return '';
 };
 
@@ -37,7 +42,8 @@ export const fetchData = (type: string, content?: any) => {
   };
   if (type === 'operatorimage') {
     headers = {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: authToken
     };
   }
   const reqHeaders: any = {
@@ -66,7 +72,7 @@ export const fetchData = (type: string, content?: any) => {
       apiurl += `data_views/${content}`;
       break;
     case 'operatorimage':
-      apiurl = `${c11nurl}/v860/app/${application}/image/${content}`;
+      apiurl = `${c11nurl}/app/${application}/image/${content}`;
       reqHeaders.credentials = 'include';
       break;
     default:
@@ -131,11 +137,6 @@ export const sendData = (type: string, id: string, content: any, method?: string
     'Content-Type': 'application/json;charset=UTF-8',
     Authorization: authToken
   };
-  if (type === 'setc11ncookie') {
-    headers = {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    };
-  }
   const reqHeaders: any = {
     method: method ? method : 'POST',
     headers,
@@ -160,10 +161,6 @@ export const sendData = (type: string, id: string, content: any, method?: string
       reqHeaders.body = content;
       reqHeaders.method = 'PATCH';
       reqHeaders.headers['If-Match'] = (window as any).etag;
-      break;
-    case 'setc11ncookie':
-      apiurl = `${c11nurl}/v860/app/${application}/setc11ncookie`;
-      reqHeaders.body = content;
       break;
     default:
       break;
