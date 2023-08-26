@@ -7,30 +7,6 @@ export default function Login() {
     window.localStorage.getItem('config') ||
       '{"url":"","portalName":"","clientid":"","clientsecret":"", "application":"", "c11nurl":""}'
   );
-  /*
-  if (url === 'https://frontend-app.pega.net/prweb') {
-    authenticate('xxx', 'xxxx')
-      .then(response => {
-        if (response.access_token) {
-          (window as any).token = response.access_token;
-          fetchData('dataviews', 'D_pxBootstrapConfig').then(response => {
-            (window as any).config = JSON.parse(response.pyConfigJSON);
-            setCookie('token', (window as any).token, 3);
-            sessionStorage.setItem('config', JSON.stringify((window as any).config));
-            window.history.replaceState(
-              { token: (window as any).token, config: (window as any).config },
-              '',
-              window.location.pathname
-            );
-            window.location.reload();
-          });
-        }
-      })
-      .catch(error => {
-        setErrorMsg('The information you entered was not recognized');
-      });
-  }
-  */
 
   const [settingsURL, setsettingsURL] = useState(url);
   const [settingsPortalName, setsettingsPortalName] = useState(portalName);
