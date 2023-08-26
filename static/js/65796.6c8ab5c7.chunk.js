@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdemocosmos=self.webpackChunkdemocosmos||[]).push([[65796],{65796:function(n,e,t){t.r(e),t.d(e,{Component:function(){return c},name:function(){return r},set:function(){return o},viewBox:function(){return s}});var u=t(80184),o="budicon",r="caret-up",c=function(){return(0,u.jsx)("path",{d:"M4 17.25V14.5L12.5 8l8.5 6.5v2.75l-8.5-6.5z"})},s="0 0 25 25"}}]);
+//# sourceMappingURL=65796.6c8ab5c7.chunk.js.map
