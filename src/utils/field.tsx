@@ -20,7 +20,7 @@ export const escapeHTML = (str: string) => {
         '(': '&#40;',
         ')': '&#41;',
         '"': '&quot;'
-      }[tag] || tag)
+      })[tag] || tag
   );
 };
 
@@ -37,7 +37,7 @@ export const unescapeHTML = (str: string) => {
         '&#40;': '(',
         '&#41;': ')',
         '&quot;': '"'
-      }[tag] || tag)
+      })[tag] || tag
   );
 };
 
@@ -303,10 +303,7 @@ export const renderDisplayFieldValue = (data: any) => {
         <CurrencyDisplay
           value={data.config.displayvalue}
           currencyISOCode='USD'
-          formattingOptions={{
-            showGroupSeparators: true,
-            showDecimal: false
-          }}
+          groupSeparators={true}
         />
       );
     case 'DateTime':

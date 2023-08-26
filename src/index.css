@@ -132,3 +132,7 @@ body {
   border-radius: 5px;
   background: #FFF;
 }
+
+body > iframe {
+  display: none;
+}

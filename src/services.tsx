@@ -7,7 +7,7 @@ const { url, portalName, clientid, clientsecret, application, c11nurl } = JSON.p
 
 export const getDataUrl = (type: string, content: string) => {
   if (!content || content === '') return '';
-
+  /*
   switch (type) {
     case 'operatorimage':
       fetchData('operatorimage', content).then(response => {
@@ -17,7 +17,7 @@ export const getDataUrl = (type: string, content: string) => {
     default:
       break;
   }
-
+*/
   return '';
 };
 

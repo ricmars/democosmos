@@ -20,7 +20,7 @@ export const escapeHTML = (str: string) => {
         '(': '&#40;',
         ')': '&#41;',
         '"': '&quot;'
-      }[tag] || tag)
+      })[tag] || tag
   );
 };
 

@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchData } from '../services';
-import { Link } from '@pega/cosmos-react-core';
 import { Feed, FeedNewPost, FeedPost, FeedReply } from '@pega/cosmos-react-social';
-import { getRelativeTime } from '../utils/datetime';
 import { getOperatorName, getOperatorUrl } from '../utils/env';
 import { getDataUrl } from '../services';
 
@@ -26,17 +24,6 @@ export default function Pulse() {
       });
   }, []);
 
-  const renderContent = (context: any) => {
-    if (context.pxContextType === 'case') {
-      return (
-        <Link href={`/case/${context.pyContext.split(' ')[1]}`} previewable target='_blank'>
-          {context.pyContextDescription}
-        </Link>
-      );
-    }
-    return context.pyContextDescription;
-  };
-
   const renderReplies = (item: any) => {
     if (item.pxResults && item.pxResults.length > 0) {
       return item.pxResults.map((reply: any) => (
@@ -44,29 +31,23 @@ export default function Pulse() {
           id={reply.pzInsKey}
           key={reply.pzInsKey}
           content={reply.pyMessage}
-          info={{
-            fullname: reply.postedByUser.name,
-            fullnameLabel: reply.postedByUser.name,
-            username: reply.postedByUser.ID,
-            avatarSrc: getDataUrl('operatorimage', reply.postedByUser.userImage),
-            content: reply.pyMessage,
-            timeElapsed: getRelativeTime(new Date(reply.pxCreateDateTime))
-          }}
-          interactionInfo={{
-            likeLabel: 'Like',
-            likeCount: reply.pyLikes.pxLikeCount,
-            commentLabel: 'Comment'
-          }}
+          fullname={reply.postedByUser.name}
+          username={reply.postedByUser.ID}
+          postTimestamp={new Date(reply.pxCreateDateTime)}
+          liked={false}
+          likes={[]}
+          likeCount={reply.pyLikes.pxLikeCount}
           onLikeClick={() => {}}
           onCommentClick={() => {}}
         />
       ));
     }
-    return null;
+    return [];
   };
 
   return (
     <Feed
+      title='Feed'
       searchTypes={['user', 'case']}
       userInfo={{
         username: getOperatorName(),
@@ -81,38 +62,31 @@ export default function Pulse() {
             postLabel: 'Post'
           }}
           onFilesAdded={() => {}}
-          onPost={() => {}}
+          onSubmit={() => {}}
         />
       }
       posts={posts.map((item: any) => (
         <FeedPost
           id={item.pzInsKey}
           key={item.pzInsKey}
-          info={{
-            fullname: item.postedByUser.name,
-            username: item.postedByUser.ID,
-            avatarSrc: getDataUrl('operatorimage', item.postedByUser.userImage),
-            content: item.pyMessage,
-            postContext: renderContent(item),
-            timeElapsed: getRelativeTime(new Date(item.pyFeed.pyPostedOn))
-          }}
-          interactionInfo={{
-            likeLabel: 'Like',
-            likeCount: item.pyLikes.pxLikeCount,
-            commentLabel: 'Comment'
-          }}
+          content={item.pyMessage}
+          fullname={item.postedByUser.name}
+          username={item.postedByUser.ID}
+          postTimestamp={new Date(item.pyFeed.pyPostedOn)}
           replies={renderReplies(item)}
           attachments={[]}
           maxContentHeight={80}
+          onCommentClick={() => {}}
+          liked={false}
+          likes={[]}
+          likeCount={item.pyLikes.pxLikeCount}
           onLikeClick={() => {}}
           onUserClick={() => {}}
           actions={[{ text: 'Bookmark', id: 'Bookmark', onClick: () => {} }]}
           replyInput={{
-            commentLabel: 'Send Comment',
             attachments: [],
             onFilesAdded: () => {},
-            onSubmit: () => {},
-            placeholder: 'Add a comment'
+            onSubmit: () => {}
           }}
         />
       ))}

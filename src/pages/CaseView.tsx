@@ -10,12 +10,7 @@ import {
   Button,
   Form
 } from '@pega/cosmos-react-core';
-import {
-  CaseView as CaseViewComp,
-  CaseSummaryFields,
-  Tasks,
-  Stages
-} from '@pega/cosmos-react-work';
+import { CaseView as CaseViewComp, Tasks, Stages } from '@pega/cosmos-react-work';
 import { fetchData, sendData } from '../services';
 import { getField, renderDisplayFieldLabel, renderDisplayFieldValue } from '../utils/field';
 import { getDataUrl } from '../services';
@@ -227,7 +222,7 @@ export default function CaseViewPage() {
     if (!caseObj.data.caseInfo.assignments) return null;
     return (
       <Tasks
-        headerText='Tasks'
+        name='Tasks'
         count={caseObj.data.caseInfo.assignments.length}
         items={renderTasklist()}
         emptyPlaceholder={<EmptyState />}
@@ -318,12 +313,10 @@ export default function CaseViewPage() {
       followed={false}
       onFollowedChange={() => {}}
       onEdit={() => {}}
-      summary={
-        <CaseSummaryFields
-          primaryFields={getSummaryFields(0)}
-          secondaryFields={getSummaryFields(1)}
-        />
-      }
+      summaryFields={{
+        primary: getSummaryFields(0),
+        secondary: getSummaryFields(1)
+      }}
       tabs={getCaseTabs()}
       tasks={getAssignments()}
       stages={renderStages()}

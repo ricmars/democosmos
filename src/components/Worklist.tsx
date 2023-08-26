@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tasks } from '@pega/cosmos-react-work';
-import { Button, Avatar, EmptyState, Text, MetaList, Link } from '@pega/cosmos-react-core';
+import { Avatar, EmptyState, Text, MetaList, Link } from '@pega/cosmos-react-core';
 import { getOperatorName, getOperatorUrl } from '../utils/env';
 import { getDataUrl } from '../services';
 import { genStatus } from '../utils/status';
@@ -45,6 +45,7 @@ export default function Worklist() {
         const pyID = keys[keys.length - 1];
         const path = encodeURI(`/case/${keys[keys.length - 2]} ${keys[keys.length - 1]}`);
         return {
+          id: item.pxRefObjectKey,
           name: item.pxTaskLabel,
           meta: (
             <MetaList
@@ -65,16 +66,9 @@ export default function Worklist() {
               ]}
             />
           ),
-          actions: (
-            <Button
-              variant='primary'
-              onClick={() => {
-                openAssignment();
-              }}
-            >
-              Go
-            </Button>
-          ),
+          onOpen: () => {
+            openAssignment();
+          },
           content: null
         };
       });
@@ -82,7 +76,7 @@ export default function Worklist() {
 
   return (
     <Tasks
-      headerText='My Worklist'
+      name='My Worklist'
       count={tasklist.length}
       items={renderTasklist()}
       headerVisual={

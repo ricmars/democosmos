@@ -1,9 +1,10 @@
-import { Suspense, lazy, useEffect, useState, useContext, FormEvent } from 'react';
+import { Suspense, lazy, useEffect, useState, FormEvent } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import {
   Icon,
   Modal,
-  ModalManagerContext,
+  useModalManager,
+  useModalContext,
   AppShell,
   AppShellList,
   Avatar,
@@ -46,7 +47,7 @@ function App() {
     if (tmpconfig && tmpconfig !== '') (window as any).config = JSON.parse(tmpconfig);
   }
 
-  const { create: createModal } = useContext(ModalManagerContext);
+  const { create: createModal } = useModalManager();
   const [portal, setPortal] = useState<any>();
   const [isPortalLoaded, setPortalLoaded] = useState(false);
   const [searchVal, setSearchVal] = useState('');
@@ -68,8 +69,7 @@ function App() {
       />
     );
 
-    const { ModalContext } = useContext(ModalManagerContext);
-    const { dismiss } = useContext(ModalContext);
+    const { dismiss } = useModalContext();
 
     useEffect(() => {
       let isMounted = true;
@@ -240,7 +240,7 @@ function App() {
       avatar: (
         <Avatar name={getOperatorName()} imageSrc={getDataUrl('operatorimage', getOperatorUrl())} />
       ),
-      actions: [{ text: 'Log out', id: 'logout', onClick: logOffAction }],
+      actions: [{ primary: 'Log out', id: 'logout', onClick: logOffAction }],
       name: getOperatorName()
     };
   };
